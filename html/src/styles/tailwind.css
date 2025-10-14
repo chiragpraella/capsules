@@ -10,3 +10,9 @@ html, body {
 body {
   @apply bg-white text-gray-800 antialiased font-sans;
 }
+
+::-webkit-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+  display: none;            /* Chrome, Safari and Opera */
+}
