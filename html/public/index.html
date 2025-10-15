@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Capsules</title>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;500;600;700&display=swap"
@@ -13,8 +14,8 @@
 </head>
 
 <body class="min-h-screen flex flex-col bg-[#1D1A16]">
-  <header class="p-6 absolute top-0 w-full z-[11] flex justify-between items-center">
-    <div class="@w-[82]">
+  <header class="p-6 fixed top-0 w-full z-[11] flex justify-between items-center">
+    <div class="@w-[82] logo">
       <svg viewBox="0 0 82 38" fill="none" style="opacity: 1; visibility: inherit;" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M74.7955 37.5C73.4132 37.5 72.1714 37.2062 71.0703 36.6186C69.9925 36.0085 69.1374 35.1723 68.5048 34.1102C67.8956 33.048 67.591 31.8503 67.591 30.517C67.591 29.1384 67.8956 27.9294 68.5048 26.8898C69.1374 25.8503 69.9925 25.0254 71.0703 24.4153C72.1714 23.8051 73.4132 23.5 74.7955 23.5C76.2247 23.5 77.4781 23.8051 78.5559 24.4153C79.6336 25.0254 80.4771 25.8503 81.0862 26.8898C81.6954 27.9294 82 29.1384 82 30.517C82 31.8503 81.6954 33.048 81.0862 34.1102C80.4771 35.1723 79.6336 36.0085 78.5559 36.6186C77.4781 37.2062 76.2247 37.5 74.7955 37.5ZM74.7955 36.0763C76.5058 36.0763 77.8647 35.5565 78.8722 34.517C79.9031 33.4774 80.4185 32.1441 80.4185 30.517C80.4185 28.8672 79.9031 27.5339 78.8722 26.517C77.8647 25.4774 76.5058 24.9576 74.7955 24.9576C73.0852 24.9576 71.7146 25.4774 70.6837 26.517C69.6762 27.5339 69.1725 28.8672 69.1725 30.517C69.1725 32.1441 69.6762 33.4774 70.6837 34.517C71.7146 35.5565 73.0852 36.0763 74.7955 36.0763ZM71.8786 34.0763V26.822H75.4281C76.2013 26.822 76.8222 27.0254 77.2907 27.4322C77.7593 27.839 77.9936 28.3814 77.9936 29.0593C77.9936 29.8051 77.7241 30.3927 77.1853 30.822C77.4664 31.0028 77.6538 31.2401 77.7476 31.5339C77.8647 31.8277 77.935 32.1441 77.9584 32.4831L78.099 34.0763H76.3067L76.1661 32.8898C76.0958 32.2571 75.9904 31.839 75.8498 31.6356C75.7327 31.4322 75.4281 31.3305 74.9361 31.3305H73.8115V34.0763H71.8786ZM73.8115 29.9407H75.1821C75.4398 29.9407 75.6507 29.8842 75.8147 29.7712C76.0021 29.6356 76.0958 29.4322 76.0958 29.161C76.0958 28.8898 76.0021 28.6977 75.8147 28.5848C75.6507 28.4718 75.4398 28.4153 75.1821 28.4153H73.8115V29.9407Z"
@@ -27,17 +28,13 @@
           fill="#F4EFE7" style="fill:color(display-p3 0.9569 0.9373 0.9059);fill-opacity:1;"></path>
       </svg>
     </div>
-    <button class="@h-[64] bg-white @rounded-[50] @bottom-[50] flex justify-between items-center @p-[6] z-[10]">
-      <div class="@ml-[24] text-darkBrown @text-[18] @mr-[16] relative overflow-hidden @mb-[1] w-full"
-        style="position: relative; opacity: 1;">
-        <div><!--[-->Reserve<!--]-->
-        </div>
-        <div class="absolute top-0 translate-y-[90%] w-full text-center">
-          <!--[-->Reserve<!--]-->
-        </div>
+    <button id="reserve-button"
+      class="@h-[64] @text-[18] text-slide-animation bg-white @rounded-[50] @bottom-[50] flex justify-between items-center @py-[6] @pl-[24] @pr-[6] z-[10] hover-reveal-button">
+      <div class=" slides-wrapper text-darkBrown relative overflow-hidden @mb-[1] w-full">
+        <div>Reserve</div>
       </div>
       <div
-        class="h-full ml-auto aspect-square rounded-full bg-darkBrown @px-[15] items-center justify-center flex flex-col will-change-[transform] translate-z-0">
+        class="h-full @ml-[16] aspect-square rounded-full bg-darkBrown @px-[15] items-center justify-center flex flex-col will-change-[transform] translate-z-0 ">
         <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M15.0237 4.36449L1.66265 17.7255L0.287972 16.3508L13.649 2.98981L2.0943 2.98981L2.09431 0.974945L17.0385 0.974956L17.0385 15.8929H15.0499L15.0237 4.36449Z"
@@ -65,12 +62,16 @@
         </div>
       </div>
     </div>
-    <section class="@p-[10] h-svh @mb-[120] ">
+    <section class="@p-[10] h-svh @mb-[120] hero-section">
       <div
         class="relative h-full w-full overflow-hidden bg-[url('/public/images/cap1.png')] bg-no-repeat bg-cover text-white @rounded-[60]">
-        <div class="h-full w-full @rounded-[60] overflow-hidden relative">
-          <video preload="metadata" class="pointer-events-none absolute top-0 object-cover hide-in-safari object-center opacity-60 h-full w-full mix-blend-hard-light scale-[1.75] z-[10]" muted="" playsinline="" autoplay="" loop=""><source src="./video/smoke_final.mp4" type="video/mp4"></video>
-          <div class="relative z-10 flex h-full flex-col">
+        <div class="h-full w-full @rounded-[60] overflow-hidden relative ">
+          <video preload="metadata"
+            class="pointer-events-none absolute top-0 object-cover hide-in-safari object-center opacity-60 h-full w-full mix-blend-hard-light scale-[1.75] z-[10]"
+            muted="" playsinline="" autoplay="" loop="">
+            <source src="./video/smoke_final.mp4" type="video/mp4">
+          </video>
+          <div class="relative z-10 flex h-full flex-col @p-[30] justify-between">
             <div class="flex items-start justify-between p-6 md:p-12">
               <h1 class="text-6xl font-bold tracking-tight text-hero-text md:text-8xl lg:text-9xl ">
                 <svg viewBox="0 0 261 61" class="@mt-[5] overflow-hidden @w-[1030]" fill="none"
@@ -103,42 +104,44 @@
                 </svg>
               </h1>
             </div>
-            <div class="mt-auto flex items-end justify-between p-6 md:p-12">
-              <div class="max-w-md">
-                <h2 class="text-xl  font-bold leading-tight text-hero-text">
+            <div class="mt-auto flex items-end justify-between">
+              <div>
+                <h2 class="@text-[48] font-medium @leading-[50] @tracking-[-0.2] text-white top-to-bottom-reveal">
                   Closer to<br />
                   Nature—Closer<br />
                   to Yourself
                 </h2>
               </div>
-  
+
               <button id="menu"
-                class="@w-[63] @h-[64] bg-white @rounded-[50] fixed @bottom-[50] left-0 right-0 mx-auto flex justify-between items-center @p-[6] z-[100] md:!@w-[155] shrink-0">
-                <div class="@ml-[12]  @text-[18] absolute text-left overflow-hidden @mb-[1] w-full ">
-                  <div class="text-darkBrown">Menu</div>
-                  <div class="absolute top-0 translate-y-[80%] w-full text-center"> Close </div>
-                  <div class="absolute top-0 translate-y-[80%] w-full text-center text-darkBrown"> Menu </div>
-                  <div class="absolute top-0 translate-y-[80%] w-full text-center"> Close </div>
+                class="@w-[63] @h-[64] @text-[18] bg-white @rounded-[50] fixed @bottom-[50] left-0 right-0 mx-auto flex justify-between items-center @py-[6] @pl-[12] @pr-[6] z-[100] md:!@w-[155] shrink-0 hover-reveal-button text-slide-animation">
+
+                <div class="slides-wrapper text-darkBrown relative overflow-hidden @mb-[1] w-full">
+                  <div>Menu</div>
                 </div>
                 <div
-                  class="h-full ml-auto aspect-square overflow-hidden rounded-full bg-darkBrown @px-[15] items-center justify-center flex flex-col will-change-[transform] translate-z-0">
-                  <svg viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="overflow-visible">
+                  class="h-full ml-auto aspect-square rounded-full bg-darkBrown @px-[15] items-center justify-center flex flex-col will-change-[transform] translate-z-0">
+                  <svg id="menu-svg" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g transform="translate(0, 8)">
-                      <g style="transform-origin: 11px 1px;">
-                        <rect x="2" width="18" height="2" rx="1" fill="rgba(177, 166, 150, 1)"></rect>
+                      <g id="menu-line-top" data-svg-origin="11 1" transform="matrix(1,0,0,1,0,0)">
+                        <rect width="100%" height="2" transform="matrix(-1 0 0 1 22 0)" fill="rgba(177, 166, 150, 1)">
+                        </rect>
                       </g>
-                      <g>
-                        <rect x="2" y="5" width="18" height="2" rx="1" fill="rgba(177, 166, 150, 1)"></rect>
+                      <g id="menu-line-middle" style="opacity: 1;">
+                        <rect width="100%" height="2" transform="matrix(-1 0 0 1 22 5)" fill="rgba(177, 166, 150, 1)">
+                        </rect>
                       </g>
-                      <g style="transform-origin: 11px 11px;">
-                        <rect x="2" y="10" width="18" height="2" rx="1" fill="rgba(177, 166, 150, 1)"></rect>
+                      <g id="menu-line-bottom" data-svg-origin="11 11" transform="matrix(1,0,0,1,0,0)">
+                        <rect width="100%" height="2" transform="matrix(-1 0 0 1 22 10)" fill="rgba(177, 166, 150, 1)">
+                        </rect>
                       </g>
                     </g>
                   </svg>
                 </div>
               </button>
-              <div class="hidden max-w-xl lg:block">
-                <p class="text-right text-sm text-hero-text/90 md:text-base">
+              <div class="hidden lg:block">
+                <p
+                  class="@text-[18] font-semibold @leading-[23] @tracking-[-0.2] text-white @mb-[24] top-to-bottom-reveal">
                   Spend unforgettable and remarkable time<br />
                   in the Californian desert with—Capsules.
                 </p>
@@ -148,10 +151,12 @@
         </div>
       </div>
     </section>
+    <section class="h-screen @mb-[100]">
+
+    </section>
   </main>
   <!-- GSAP via CDN (avoids local path issues) -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
   <script src="./js/main.js" type="module"></script>

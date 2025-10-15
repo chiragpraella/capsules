@@ -16,3 +16,20 @@ body {
   scrollbar-width: none;    /* Firefox */
   display: none;            /* Chrome, Safari and Opera */
 }
+
+g{
+  transition-duration: 0.3s;
+}
+
+.text-slide-animation > div > div:first-child {
+  position: relative;
+  z-index: 2;
+}
+
+.text-slide-animation> div > div:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
