@@ -27,11 +27,7 @@
     <div class="card-img text-center {% if product.featured_image.size == 0 %}bg-gray-300{% endif %}" >
         {%- if product.featured_image != blank -%}
             <a href="{{ product.url | within: collection }}" class="d-block product-link position-relative" >
-              {%- render 'image',
-                image: product.featured_image,
-                sizes: img_sizes,
-                alt: product.featured_image.alt | default: card_title | escape
-              -%}
+              {%- render 'image', image: product.featured_image, sizes: img_sizes, alt: product.featured_image.alt, default: card_title -%}
             </a>
         {%- else -%}
             {% render 'placeholder-image' %}
@@ -92,3 +88,19 @@
         </div>
     </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%- render 'image',
+                    image: product.featured_image,
+                    sizes: img_sizes,
+                    alt: product.featured_image.alt | default: card_title | escape
+                  -%}
+  to: "{%- render 'image', image: product.featured_image, sizes: img_sizes, alt: product.featured_image.alt,
+    default: card_title -%}"
+  position: 1105..1230
+{% endcomment %}

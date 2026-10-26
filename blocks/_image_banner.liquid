@@ -12,17 +12,11 @@
 
     <div class="media-banner__wrapper {% if block.settings.first_image != blank and block.settings.second_image != blank %} media-banner--two-images d-flex{% endif %} {% if block.settings.stack_images_on_mobile %} media_banner--stacked {% endif %} {% if block.settings.hide_second_image %} hide_second_image--mobile {% endif %} {% if block.settings.overlay_on_mobile %} media_banner--mobile_overlay {% endif %}" {% if block.settings.enable_overlay %} style="--overlay-opacity: {{ block.settings.overlay_opacity }}; --overlay-color:{{ block.settings.overlay_bg_color }}; --mix-blend-mode: {{ block.settings.blend_mode}};" {% endif %}>
         {%- if block.settings.first_image != blank -%}
-            {%- render 'picture-tag'
-                image: block.settings.first_image
-                mobile_image: block.settings.first_image_mobile | default: block.settings.first_image
-            -%}
+            {%- render 'picture-tag', image: block.settings.first_image, mobile_image: block.settings.first_image_mobile, default: block.settings.first_image -%}
         {%- endif -%} 
 
         {%- if block.settings.second_image != blank -%}
-            {%- render 'picture-tag'
-                image: block.settings.second_image
-                mobile_image: block.settings.second_image_mobile | default: block.settings.second_image
-            -%}
+            {%- render 'picture-tag', image: block.settings.second_image, mobile_image: block.settings.second_image_mobile, default: block.settings.second_image -%}
         {%- endif -%} 
 
         {%- if block.settings.first_image == blank and block.settings.second_image == blank -%}
@@ -335,4 +329,26 @@
         ]
     }
   {% endschema %}
-  
+  {%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%- render 'picture-tag'
+                    image: block.settings.first_image
+                    mobile_image: block.settings.first_image_mobile | default: block.settings.first_image
+                -%}
+  to: "{%- render 'picture-tag', image: block.settings.first_image, mobile_image:
+    block.settings.first_image_mobile, default: block.settings.first_image -%}"
+  position: 1134..1283
+- from: |-
+    {%- render 'picture-tag'
+                    image: block.settings.second_image
+                    mobile_image: block.settings.second_image_mobile | default: block.settings.second_image
+                -%}
+  to: "{%- render 'picture-tag', image: block.settings.second_image, mobile_image:
+    block.settings.second_image_mobile, default: block.settings.second_image -%}"
+  position: 1376..1528
+{%- endcomment -%}
